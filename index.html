@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI GTM Command Center | Interview & Discovery Simulator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">AI GTM Command Center</p>
+        <h1>Interview & Discovery Simulator</h1>
+        <p class="hero-copy">
+          Practice selling Cursor-like AI developer tools to technical,
+          executive, security, and procurement buyers.
+        </p>
+      </div>
+      <div class="hero-card" aria-label="Simulation progress">
+        <span class="hero-card__label">Progress</span>
+        <strong id="progressLabel">Step 1 of 4</strong>
+        <div class="progress" aria-hidden="true">
+          <span id="progressBar"></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel setup-panel" aria-labelledby="setupTitle">
+        <div class="section-heading">
+          <span class="step">1</span>
+          <div>
+            <h2 id="setupTitle">Choose your buyer and scenario</h2>
+            <p>Pick one persona, one scenario, and any competitive pressure.</p>
+          </div>
+        </div>
+
+        <label for="personaSelect">Buyer persona</label>
+        <select id="personaSelect"></select>
+
+        <label for="scenarioSelect">Scenario</label>
+        <select id="scenarioSelect"></select>
+
+        <label for="competitorSelect">Competitive context</label>
+        <select id="competitorSelect"></select>
+
+        <div class="button-row">
+          <button id="startButton" type="button">Start simulation</button>
+          <button id="resetButton" class="secondary" type="button">Reset</button>
+        </div>
+      </section>
+
+      <section class="panel roleplay-panel" aria-labelledby="roleplayTitle">
+        <div class="section-heading">
+          <span class="step">2</span>
+          <div>
+            <h2 id="roleplayTitle">Role-play prompt</h2>
+            <p>Answer like you are live with the buyer.</p>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="tag-row">
+            <span id="personaTag" class="tag">Persona</span>
+            <span id="scenarioTag" class="tag">Scenario</span>
+            <span id="competitorTag" class="tag tag--warning">Objection</span>
+          </div>
+          <p id="buyerPrompt" class="buyer-prompt">
+            Select a buyer and scenario to generate a question.
+          </p>
+        </div>
+
+        <label for="answerInput">Your answer</label>
+        <textarea
+          id="answerInput"
+          rows="8"
+          placeholder="Type your answer here. Aim for discovery, buyer relevance, and a clear next step."
+        ></textarea>
+
+        <div class="coach-strip">
+          <strong>Quick reminder:</strong>
+          <span>Ask before pitching. Tie pain to value. Control the next step.</span>
+        </div>
+
+        <div class="button-row">
+          <button id="scoreButton" type="button">Score my answer</button>
+          <button id="sampleButton" class="secondary" type="button">Use sample answer</button>
+        </div>
+      </section>
+
+      <section class="panel score-panel" aria-labelledby="scoreTitle">
+        <div class="section-heading">
+          <span class="step">3</span>
+          <div>
+            <h2 id="scoreTitle">Scorecard</h2>
+            <p>Color-coded scores from 1-5 across ten selling skills.</p>
+          </div>
+        </div>
+
+        <div id="scoreSummary" class="score-summary">
+          Complete a role-play answer to see your score.
+        </div>
+        <div id="scorecard" class="score-grid"></div>
+      </section>
+
+      <section class="panel feedback-panel" aria-labelledby="feedbackTitle">
+        <div class="section-heading">
+          <span class="step">4</span>
+          <div>
+            <h2 id="feedbackTitle">Feedback and export</h2>
+            <p>Review coaching notes, then save or export your result.</p>
+          </div>
+        </div>
+
+        <div id="feedback" class="feedback-empty">
+          Your feedback will appear after scoring.
+        </div>
+
+        <div class="button-row">
+          <button id="saveButton" type="button" disabled>Save result</button>
+          <button id="exportButton" class="secondary" type="button" disabled>
+            Export JSON
+          </button>
+        </div>
+
+        <details class="saved-results">
+          <summary>Saved simulations <span id="savedCount">0</span></summary>
+          <div id="savedResults"></div>
+        </details>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
